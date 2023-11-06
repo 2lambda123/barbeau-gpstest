@@ -679,7 +679,102 @@ class CarrierFreqUtilsTest {
 
         label = CarrierFreqUtils.getCarrierFrequencyLabel(southpan122L5)
         assertEquals("L5", label)	  
-	  
+
+        // BDSBAS 130 B1C
+        val snas130B1C = SatelliteStatus(130,
+                GnssType.SBAS,
+                30f,
+                true,
+                true,
+                true,
+                72f,
+                25f);
+        snas130B1C.hasCarrierFrequency = true
+        snas130B1C.carrierFrequencyHz = 1575420000.0
+        snas130B1C.sbasType = SbasType.SNAS
+
+        label = CarrierFreqUtils.getCarrierFrequencyLabel(snas130B1C)
+        assertEquals("B1C", label)
+
+        // BDSBAS 130 B2a
+        val snas130B2a = SatelliteStatus(130,
+                GnssType.SBAS,
+                30f,
+                true,
+                true,
+                true,
+                72f,
+                25f);
+        snas130B2a.hasCarrierFrequency = true
+        snas130B2a.carrierFrequencyHz = 1176450000.0
+        snas130B2a.sbasType = SbasType.SNAS
+
+        label = CarrierFreqUtils.getCarrierFrequencyLabel(snas130B2a)
+        assertEquals("B2a", label)	  
+
+        // BDSBAS 143 B1C
+        val snas143B1C = SatelliteStatus(143,
+                GnssType.SBAS,
+                30f,
+                true,
+                true,
+                true,
+                72f,
+                25f);
+        snas143B1C.hasCarrierFrequency = true
+        snas143B1C.carrierFrequencyHz = 1575420000.0
+        snas143B1C.sbasType = SbasType.SNAS
+
+        label = CarrierFreqUtils.getCarrierFrequencyLabel(snas143B1C)
+        assertEquals("B1C", label)
+
+        // BDSBAS 143 B2a
+        val snas143B2a = SatelliteStatus(122,
+                GnssType.SBAS,
+                30f,
+                true,
+                true,
+                true,
+                72f,
+                25f);
+        snas143B2a.hasCarrierFrequency = true
+        snas143B2a.carrierFrequencyHz = 1176450000.0
+        snas143B2a.sbasType = SbasType.SNAS
+
+        label = CarrierFreqUtils.getCarrierFrequencyLabel(snas143B2a)
+        assertEquals("B2a", label)	  
+
+        // BDSBAS 144 B1C
+        val snas144B1C = SatelliteStatus(144,
+                GnssType.SBAS,
+                30f,
+                true,
+                true,
+                true,
+                72f,
+                25f);
+        snas144B1C.hasCarrierFrequency = true
+        snas144B1C.carrierFrequencyHz = 1575420000.0
+        snas144B1C.sbasType = SbasType.SNAS
+
+        label = CarrierFreqUtils.getCarrierFrequencyLabel(snas144B1C)
+        assertEquals("B1C", label)
+
+        // BDSBAS 144 B2a
+        val snas144B2a = SatelliteStatus(144,
+                GnssType.SBAS,
+                30f,
+                true,
+                true,
+                true,
+                72f,
+                25f);
+        snas144B2a.hasCarrierFrequency = true
+        snas144B2a.carrierFrequencyHz = 1176450000.0
+        snas144B2a.sbasType = SbasType.SNAS
+
+        label = CarrierFreqUtils.getCarrierFrequencyLabel(snas144B2a)
+        assertEquals("B2a", label)	  
 
         // Test variations on the "same" numbers to make sure floating point equality works
         val gpsL1variation = SatelliteStatus(1,
