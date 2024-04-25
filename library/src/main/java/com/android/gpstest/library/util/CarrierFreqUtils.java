@@ -279,14 +279,11 @@ public class CarrierFreqUtils {
     }
 
     /**
-     * Returns true if the provided carrier frequency label is a primary carrier frequency (e.g., "L1")
-     * (i.e., it is not a secondary frequency such as "L5") or false if it is not a primary carrier
-     * frequency
+     * Checks if the given label is a primary carrier.
      *
-     * @param label carrier frequency label
-     * @return true if the provided carrier frequency label is a primary carrier frequency (e.g., "L1")
-     * * (i.e., it is not a secondary frequency such as "L5") or false if it is not a primary carrier
-     * * frequency
+     * @param label the label to be checked
+     * @return true if the label is a primary carrier, false otherwise
+     * @throws NullPointerException if the label is null
      */
     public static boolean isPrimaryCarrier(String label) {
         return "L1".equals(label) || "E1".equals(label) || "L1-C".equals(label) || "B1I".equals(label) || "B1C".equals(label);
