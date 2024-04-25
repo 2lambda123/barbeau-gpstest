@@ -483,6 +483,12 @@ public class BenchmarkControllerImpl implements BenchmarkController {
         rightAxis.setEnabled(false);
     }
 
+    /**
+     * Initializes the chart units for the given LineChart.
+     *
+     * @param errorChart the LineChart for which the units are to be initialized
+     * @throws NullPointerException if errorChart is null
+     */
     private void initChartUnits(LineChart errorChart) {
         String unit;
         if (METERS.equalsIgnoreCase(mPrefDistanceUnits)) {
@@ -583,10 +589,12 @@ public class BenchmarkControllerImpl implements BenchmarkController {
     }
 
     /**
-     * Add the provided error and estimated accuracy info (from Location) to the graph with the given x-axis index
-     * @param index x-axis index
-     * @param error
-     * @param location
+     * Adds the measured error to the graphs for the given index and location.
+     *
+     * @param index the index of the graph
+     * @param error the measured error to be added
+     * @param location the location associated with the error
+     * @throws IllegalArgumentException if the distance units preference is not recognized
      */
     private void addErrorToGraphs(int index, MeasuredError error, Location location) {
         float horError;
