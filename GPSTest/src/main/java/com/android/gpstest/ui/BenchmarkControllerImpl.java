@@ -485,7 +485,7 @@ public class BenchmarkControllerImpl implements BenchmarkController {
 
     private void initChartUnits(LineChart errorChart) {
         String unit;
-        if (mPrefDistanceUnits.equalsIgnoreCase(METERS)) {
+        if (METERS.equalsIgnoreCase(mPrefDistanceUnits)) {
             unit = Application.Companion.getApp().getString(R.string.meters_abbreviation);
         } else {
             unit = Application.Companion.getApp().getString(R.string.feet_abbreviation);
@@ -591,7 +591,7 @@ public class BenchmarkControllerImpl implements BenchmarkController {
     private void addErrorToGraphs(int index, MeasuredError error, Location location) {
         float horError;
         float horAccuracy;
-        if (mPrefDistanceUnits.equalsIgnoreCase(METERS)) {
+        if (METERS.equalsIgnoreCase(mPrefDistanceUnits)) {
             horError = error.getError();
             horAccuracy = location.getAccuracy();
         } else {
@@ -604,14 +604,14 @@ public class BenchmarkControllerImpl implements BenchmarkController {
         if (!Double.isNaN(error.getVertError())) {
             double vertError;
             float vertAccuracy = Float.NaN;
-            if (mPrefDistanceUnits.equalsIgnoreCase(METERS)) {
+            if (METERS.equalsIgnoreCase(mPrefDistanceUnits)) {
                 vertError = Math.abs(error.getVertError());
             } else {
                 // Feet
                 vertError = LibUIUtils.toFeet(Math.abs(error.getVertError()));
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                if (mPrefDistanceUnits.equalsIgnoreCase(METERS)) {
+                if (METERS.equalsIgnoreCase(mPrefDistanceUnits)) {
                     vertAccuracy = location.getVerticalAccuracyMeters();
                 } else {
                     // Feet
